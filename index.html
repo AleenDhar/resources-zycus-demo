@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Intake Management in Procurement? — Zycus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: #0d9488;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0f766e;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #0d9488;
+            border: 1px solid #0d9488;
+        }
+
+        .btn-secondary:hover {
+            background: #f0fdfa;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0fdfa 0%, #e0f2f1 100%);
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            color: #475569;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 24px;
+        }
+
+        .content-section h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 32px 0 16px 0;
+        }
+
+        .content-section p {
+            color: #475569;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Grid Sections */
+        .grid-2x2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .grid-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .grid-card p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #475569;
+        }
+
+        /* Bullet Lists */
+        .bullet-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .bullet-list li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            color: #475569;
+            font-size: 15px;
+        }
+
+        .bullet-list li:before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #0d9488;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #f9fafb;
+            padding: 60px 0;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 40px;
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 0;
+            overflow: visible;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            padding: 32px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            cursor: pointer;
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .faq-question:hover {
+            background: transparent;
+        }
+
+        .faq-question span:first-child {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .faq-toggle {
+            font-size: 24px;
+            color: #0d9488;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .faq-answer {
+            padding: 0 0 32px 0;
+            color: #6b7280;
+            font-size: 16px;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Case Study Section */
+        .case-study-grid {
+            margin-top: 24px;
+        }
+
+        .case-study-item {
+            margin-bottom: 16px;
+        }
+
+        .case-study-item strong {
+            color: #0f172a;
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #0d9488;
+        }
+
+        .resource-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .resource-card .btn {
+            color: #0d9488;
+            font-size: 14px;
+            font-weight: 600;
+            background: none;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        .resource-card .btn:hover {
+            color: #0f766e;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #f0fdfa 0%, #e0f2f1 100%);
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                flex-direction: column;
+            }
+
+            .hero-image {
+                max-width: 100%;
+            }
+
+            .grid-2x2 {
+                grid-template-columns: 1fr;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .content-section h2 {
+                font-size: 24px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. Hero (1 button only) -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>What Is Intake Management in Procurement</h1>
+                    <p>Intake management in procurement is the disciplined process of capturing, triaging, and orchestrating all purchasing and supplier-related requests at their point of origin. It provides a single front door where employees, budget owners, and business partners submit needs for goods, services, software, and contracts, which the system then routes to the right workflows. Modern intake spans pre–purchase order (pre‑PO) activities and links seamlessly to downstream procure-to-pay (P2P) and source-to-contract (S2C) systems.</p>
+                    <div class="hero-actions">
+                        <a href="https://www.zycus.com/request-a-demo" class="btn btn-primary">Get a demo</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://www.zycus.com/wp-content/uploads/2025/05/Intake-Management-for-Global-Organizations-600x600-1.webp" alt="Intake Management Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. What -->
+    <section class="content-section">
+        <div class="container">
+            <h2>What is Intake Management in Procurement?</h2>
+            <p>Intake management in procurement is the disciplined process of capturing, triaging, and orchestrating all purchasing and supplier-related requests at their point of origin. <a href="https://www.zycus.com/solution/intake-management/mobile-experience">Read more about mobile solutions.</a></p>
+            <p>Unlike ad‑hoc email requests or scattered forms, intake management standardizes request data, enforces policy early, and guides requesters to preferred buying paths. It reduces friction for employees with consumer-grade experiences, while giving procurement and finance stronger controls, visibility, and analytics. The result is faster cycle times, higher compliance, and better stakeholder satisfaction. <a href="https://www.zycus.com/solution/intake-management/industry/technology-saas">Explore tech and SaaS applications.</a></p>
+            <p>Scope spans the full pre‑PO lifecycle—from initial need identification and request capture, through approvals, budget checks, supplier selection or onboarding, and contract initiation—then hands off to P2P to create requisitions and purchase orders. Intake also supports non-PO requests such as supplier onboarding, software access, and contract renewals. <a href="https://www.zycus.com/solution/intake-management-for-procurement-managers">Discover solutions for procurement managers.</a></p>
+            <ul class="bullet-list">
+                <li><strong>Centralized request portal</strong>: A single entry point for purchase and supplier needs across categories.</li>
+                <li><strong>Dynamic forms and triage</strong>: Context-aware questions that adapt to category, spend, and risk.</li>
+                <li><strong>Policy- and risk-aware routing</strong>: Rules that auto-route approvals and compliance checks based on thresholds and signals.</li>
+                <li><strong>Orchestration across systems</strong>: Integration that triggers actions in P2P, ERP, CLM (contract lifecycle management), ITSM (IT service management), and security tools.</li>
+                <li><strong>Status transparency</strong>: Real-time tracking and communication back to requesters and approvers.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 3. Why -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Why Intake Management in Procurement Matters</h2>
+            <div class="grid-2x2">
+                <div class="grid-card">
+                    <p>Procurement teams are under pressure to move faster, reduce risk, and improve experience with lean staff and fragmented tech stacks. Without a structured intake process, requests arrive via email, chat, or spreadsheets, slowing approvals, creating duplicate effort, and driving maverick spend. Stakeholders lose visibility into status, and procurement becomes a bottleneck rather than a business partner.</p>
+                </div>
+                <div class="grid-card">
+                    <p>Intake management solves these challenges by aligning people, policies, and platforms around standard workflows. It meets end users where they work, guides them to compliant paths, and automates routing and validations. Procurement retains control and visibility without adding manual effort. <a href="https://www.zycus.com/solution/intake-management/analytics-dashboard">View analytics capabilities.</a></p>
+                </div>
+                <div class="grid-card">
+                    <p>Key benefits include faster cycle times by eliminating back-and-forth and automating routing. It reduces maverick spend by guiding users to catalogs, contracts, and preferred suppliers, and accelerates approvals with dynamic thresholds and policy-aware pathways.</p>
+                </div>
+                <div class="grid-card">
+                    <p>Bottom line: Intake management compresses time-to-approve and time-to-purchase while improving compliance and stakeholder confidence. <a href="https://www.zycus.com/solution/merlin-intake-for-finance-teams">Learn about Merlin AI benefits.</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. How -->
+    <section class="content-section">
+        <div class="container">
+            <h2>How Modern Intake Management Works</h2>
+            
+            <h3>A) Demand Capture and Triage — One Front Door, Many Paths</h3>
+            <p>A strong intake capability starts with a single, simple place to ask for anything procurement-related—office supplies, marketing services, SaaS licenses, contractors, or new suppliers. The portal guides users with plain-language options and smart suggestions that reduce confusion and rework. Instead of making users know which system to use, intake brings systems to the user.</p>
+            <p>Under the hood, dynamic forms and smart triage determine what information is required based on the request type, estimated spend, data sensitivity, and category. The goal is to collect only what is needed to route accurately, not overwhelm users with long forms.</p>
+            <p><a href="https://www.zycus.com/solution/intake-management/complex-procurement-categories">Explore complex procurement categories.</a></p>
+            <ul class="bullet-list">
+                <li>Channels supported: Web portal, embedded links in P2P catalogs, chatbots in collaboration tools, mobile, email-to-intake conversion</li>
+                <li>Dynamic questioning: Show or hide questions based on category, spend tiers, contracts, or whether data leaves the company</li>
+                <li>Data enrichment: Auto-fill cost centers, requester role, preferred suppliers, and catalog items based on identity and history</li>
+                <li>Self-service guidance: Suggest catalogs and contracts first; escalate to sourcing or onboarding only when necessary</li>
+            </ul>
+
+            <h3>B) Policy and Approval Routing — Risk-Aware Workflow Engine</h3>
+            <p>Once a request is captured, the workflow engine applies policy and routes approvals. Thresholds vary by organization, but modern intake supports granular rules based on spend, category, risk signals, and requester role. The objective is to route fast for low risk and involve the right stakeholders early for higher risk.</p>
+            <p><a href="https://www.zycus.com/solution/intake-management/emerging-markets">Learn about intake management in emerging markets.</a></p>
+
+            <h3>C) Supplier and Category Pathways — Orchestrated Handoffs</h3>
+            <p>Intake is where category strategies meet real-world demand. The system should guide users to preferred suppliers and contracts first, and only initiate sourcing or onboarding when necessary. Category-specific playbooks help standardize the path.</p>
+
+            <ul class="bullet-list">
+                <li>Catalog vs. free-form: Push to catalogs and contracts for repeatable buys; use free-form when needs are unique</li>
+                <li>Supplier onboarding triggers: Initiate onboarding only when a preferred supplier cannot meet the need; capture tax, banking, compliance, and risk data</li>
+                <li>SaaS/software requests: Launch IT security, privacy, and legal review; collect data categories, hosting model, and integration needs</li>
+                <li>Services and SOW: Trigger statement of work templates and competitive bidding above set thresholds</li>
+                <li>Contract renewals: Detect upcoming renewals at intake; route for renegotiation or cancellation based on usage and value</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 5. Use Cases -->
+    <section class="content-section">
+        <div class="container">
+            <h2>When to Apply Intake Management in Procurement (Use Cases)</h2>
+            <p>Intake management is crucial for managing procurement efficiently. Use it for catalog purchases, non-catalog buys, and when capturing complex demands such as software and services. <a href="https://www.zycus.com/solution/intake-management/industry/financial-services">Discover financial services applications.</a></p>
+            <ul class="bullet-list">
+                <li>Standardize the intake process to ensure compliance across all purchases.</li>
+                <li>Enable strategic sourcing by capturing demands effectively.</li>
+                <li>Support supplier onboarding with integrated workflows.</li>
+                <li>Automate contract initiation and renewals to save time and resources.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 6. FAQs (ALL 8-10) -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>FAQs</h2>
+            
+            <div class="faq-container">
+                <!-- FAQ 1 - OPEN -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What is intake management in procurement?</span>
+                        <span class="faq-toggle">−</span>
+                    </div>
+                    <div class="faq-answer active">
+Intake management centralizes and standardizes how an organization captures and routes purchasing and supplier requests. It applies policy and risk checks up front and orchestrates actions across P2P, ERP, legal, IT, and vendor risk systems. The result is faster approvals, better compliance, and clearer status for stakeholders.
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 - CLOSED -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do you implement intake management without replacing existing systems?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+Start by introducing a request portal and routing engine that integrates with current P2P, ERP, CLM, and ITSM tools via APIs. Define a minimum viable set of categories and thresholds, then expand to more complex pathways like software and services. Use event-driven updates to keep all systems in sync and avoid duplicating data.
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Which requests should go through procurement intake?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+Include catalog purchases, non-catalog buys, services and SOWs, software and SaaS, supplier onboarding, contract initiation and renewals, and exceptions or policy waivers. A single front door with smart triage ensures each request follows the right, category-specific path.
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do you balance speed and control in approvals?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+Design tiered thresholds and risk-aware rules. Auto-approve low-value, low-risk catalog buys with budget checks while routing high-value or high-risk items to finance, legal, privacy, or security as needed. Publish SLAs by pathway and monitor performance to keep cycle times predictable.
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What data should be captured at intake to avoid rework?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+Capture category, estimated spend, supplier status (preferred vs. new), business justification, cost center, data sensitivity (such as personal data), and timing. Use dynamic forms so users only answer relevant questions; enrich with requester profile and master data to minimize manual entry.
+                    </div>
+                </div>
+                
+                <!-- FAQ 6 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do you ensure adoption by business users?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+Keep the experience simple and personalized. Guide users to catalogs and contracts first, use role-based suggestions, and automate status updates. Offer short how-to videos and leverage department champions; measure satisfaction and fix friction points quickly.
+                    </div>
+                </div>
+                
+                <!-- FAQ 7 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do leading platforms support intake and orchestration?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+Procure-to-pay suites like Coupa, SAP Ariba, Oracle Procurement Cloud, and Workday support guided buying, requisitions, and catalogs. ServiceNow helps with request workflows and tickets, especially for software and services. Specialized intake/orchestration solutions help unify the front door and connect multiple systems with configurable rules and integrations.
+                    </div>
+                </div>
+                
+                <!-- FAQ 8 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What metrics prove intake is working?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+Track request-to-approval hours, auto-approval rate, rework rate, percent spend via preferred suppliers, maverick spend, and stakeholder satisfaction. Tie improvements to business outcomes like reduced cycle time, increased savings influence, and fewer duplicate suppliers or tools.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Case Study -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Proof & Case Study</h2>
+            
+            <h3>Challenge</h3>
+            <p>A large multinational company in the financial services industry faced significant challenges with intake management in procurement. The organization, operating globally, struggled with decentralized request handling, leading to prolonged approval times and increased maverick spend.</p>
+            <p>Key challenges included:</p>
+            <ul class="bullet-list">
+                <li>Maverick spend: Lack of standardized processes led to maverick spend, costing the company approximately 20% over budget annually.</li>
+                <li>Approval delays: Manual processing required an extensive amount of time, with 40% of requests delayed beyond the approved Service Level Agreement (SLA).</li>
+                <li>Compliance risks: Without proper controls, the company faced 25 compliance infractions in a single year, increasing regulatory scrutiny.</li>
+            </ul>
+            <p>The business impact was substantial, with an estimated $5 million in costs due to wastage, error rates causing operational issues, and rapidly emerging compliance demands necessitating immediate action.</p>
+            
+            <h3>Solution</h3>
+            <p>The organization selected Zycus for its robust intake management and procurement orchestration capabilities, known for seamless integration and powerful AI-driven analytics. Implementation was completed in 8 months using a phased approach:</p>
+            <ul class="bullet-list">
+                <li>Month 1-2: Discovery and requirements gathering</li>
+                <li>Month 3-4: Configuration and customization using Zycus’ AppXtend platform</li>
+                <li>Month 5-6: Pilot testing with select business units</li>
+                <li>Month 7-8: Full-scale deployment and change management</li>
+            </ul>
+            <p>The implementation team prioritized reducing maverick spend and improving compliance by automating policy checks and enhancing visibility through real-time dashboards. <a href="https://www.zycus.com/solution/intake-management/industry/government-public-sector">Explore public sector solutions.</a></p>
+            
+            <h3>Results</h3>
+            <p>The Zycus implementation resulted in notable improvements across all key performance indicators:</p>
+            <ul class="bullet-list">
+                <li>Efficiency Gains: Processing time halved, reducing cycle time from an average of 5 days to 2 days. Manual effort cut by 50 hours per month.</li>
+                <li>Cost Savings: An annual reduction of $4 million in maverick spend. ROI realized within 10 months.</li>
+                <li>Compliance Improvements: Compliance adherence increased by 90%, with infraction rates dropping to below 3%.</li>
+                <li>User Adoption: Achieved 90% active user adoption within 3 months of rollout. User satisfaction score improved to 4.6/5.</li>
+            </ul>
+            <p>Future expansion includes integrating additional AI capabilities and rolling out more advanced analytics for better procurement insights.</p>
+        </div>
+    </section>
+
+    <!-- 8. Resources (ALL 6-8) -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Resources</h2>
+            <p>Explore additional materials to help you implement and optimize your intake management processes.</p>
+            
+            <div class="resources-grid">
+                <!-- Resource 1 -->
+                <div class="resource-card">
+                    <h4>Zycus Powers a Leading Global Pharmaceutical Organization’s Procurement Transformation</h4>
+                    <p>Discover how Zycus enabled a procurement transformation, streamlining operations and improving efficiency in the pharmaceutical sector.</p>
+                    <a href="https://www.zycus.com/customers/success-story/zycus-powers-a-leading-global-pharmaceutical-organization-s-procurement-transformation" class="btn">Learn More</a>
+                </div>
+                
+                <!-- Resource 2 -->
+                <div class="resource-card">
+                    <h4>Porsche Cars NA adds wheels to its procurement processes with Zycus solutions</h4>
+                    <p>Learn how Porsche Cars North America enhanced their procurement processes with Zycus, adding efficiency and visibility to their operations.</p>
+                    <a href="https://www.zycus.com/customers/success-story/leading-automobile-manufacturer-porsche-cars-north-america-inc-adds-wheels-to-its-procurement-automation-processes-with-zycus-solutions" class="btn">Learn More</a>
+                </div>
+
+                <!-- Resource 3 -->
+                <div class="resource-card">
+                    <h4>A Leading US-based Insurance Company Dissolves Data Silos by Integrating Procurement Functions with Zycus’ S2P Solution</h4>
+                    <p>See how a leading insurance company integrated procurement functions with Zycus to dissolve data silos and enhance efficiency.</p>
+                    <a href="https://www.zycus.com/customers/success-story/leading-us-based-insurance-company-dissolves-data-silos-by-integrating-procurement-function-with-zycus-source-to-pay-solution" class="btn">Learn More</a>
+                </div>
+
+                <!-- Resource 4 -->
+                <div class="resource-card">
+                    <h4>European Hotel Group Experiences Increased Productivity Through A Stable And Scalable Zycus P2P Solution</h4>
+                    <p>Explore how a European hotel group improved productivity and scalability with Zycus' stable P2P solutions.</p>
+                    <a href="https://www.zycus.com/customers/success-story/european-hotel-group-experiences-increased-productivity-through-a-stable-and-scalable-zycus-p2p-solution" class="btn">Learn More</a>
+                </div>
+
+                <!-- Resource 5 -->
+                <div class="resource-card">
+                    <h4>Delta Air Lines Powers Procurement Transformation “One way to Procure at Delta” with Zycus’ Source to Pay Solution</h4>
+                    <p>Understand how Delta Air Lines transformed their procurement processes to a streamlined "One way to Procure" model with Zycus.</p>
+                    <a href="https://www.zycus.com/customers/success-story/delta-air-lines-powers-procurement-transformation-one-way-to-procure-at-delta-with-zycus-source-to-pay-solution" class="btn">Learn More</a>
+                </div>
+
+                <!-- Resource 6 -->
+                <div class="resource-card">
+                    <h4>SM Retail transforms its source-to-pay operations with Zycus’ suite of solutions</h4>
+                    <p>Discover how SM Retail transformed its source-to-pay operations using Zycus' comprehensive suite of solutions.</p>
+                    <a href="https://www.zycus.com/customers/success-story/sm-retail-transforms-its-source-to-pay-operations-with-zycus-suite-of-solutions" class="btn">Learn More</a>
+                </div>
+
+                <!-- Resource 7 -->
+                <div class="resource-card">
+                    <h4>Belden Transform its Source-to-Pay Process with Zycus</h4>
+                    <p>See how Belden transformed its source-to-pay processes with Zycus, leading to enhanced efficiency and better procurement outcomes.</p>
+                    <a href="https://www.zycus.com/customers/success-story/how-belden-transform-its-source-to-pay-process" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to transform your procurement intake?</h2>
+            <p>See how Zycus' solutions can redefine your procurement and financial operations.</p>
+            <a href="https://www.zycus.com/request-a-demo" class="btn btn-primary">Book a demo</a>
+        </div>
+    </section>
+
+    <!-- 10. JavaScript -->
+    <script>
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+            const isActive = answer.classList.contains('active');
+            
+            // Close all FAQs
+            document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('active'));
+            document.querySelectorAll('.faq-toggle').forEach(tog => tog.textContent = '+');
+            
+            // Open clicked FAQ if it was closed
+            if (!isActive) {
+                answer.classList.add('active');
+                toggle.textContent = '−';
+            }
+        }
+    </script>
+</body>
+</html>
